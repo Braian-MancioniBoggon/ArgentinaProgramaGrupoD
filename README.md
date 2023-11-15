@@ -50,4 +50,4 @@ Implementar la persistencia de datos utilizando localStorage para que las tareas
 - Mancioni Boggon, Braian Alan
 
 # Profesor
-- Condori José Luis
+- Condori, José Luis
