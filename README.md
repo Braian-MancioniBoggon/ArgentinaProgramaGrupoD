@@ -43,6 +43,9 @@ Implementar la persistencia de datos utilizando localStorage para que las tareas
 - Enviar un archivo .rar o .zip con el siguiente formato: apellido_entregafinal.rar
 - Dentro del .rar o .zip se debe enviar el/los archivos de react js, excluyendo la carpeta node_modules
 
+## Deploy del TP Integrador
+- https://braian-mancioniboggon.github.io/ArgentinaProgramaGrupoD/
+
 # Profesor
 - Condori, José Luis
 
