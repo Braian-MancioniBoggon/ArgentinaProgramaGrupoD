@@ -47,8 +47,8 @@ Implementar la persistencia de datos utilizando localStorage para que las tareas
 - Condori, José Luis
 
 # Miembros del equipo
-- Lara, Hugo
+- [Lara, Hugo](https://github.com/hugolara31)
 - Longo, Juan Agustín
 - Ludueña, Ulises
 - Mancioni Boggon, Braian Alan
-- Torres, Luis Carlos
+- [Torres, Luis Carlos](https://github.com/luiscar241)
