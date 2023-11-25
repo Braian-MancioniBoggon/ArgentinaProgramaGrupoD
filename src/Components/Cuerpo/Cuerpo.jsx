@@ -14,29 +14,40 @@ const Cuerpo = () => {
     const seleccionarMenu = (seleccion) =>{
         setMenuPrincipal(seleccion)
     }
-    const agregarTarea = () => {
+    const crearTarea = (nombreTarea) => {
         if (tareaRecibida != ""){
-            tareas.push(tareaRecibida)
+            const tareaNueva = {nombreTarea, completada: false, eliminada: false}
+            setTareas([...tareas, tareaNueva])
             setTareaRecibida("")
         }
     }
-    const borrarTarea = (tarea, indice) => {
-        historial.push(tarea)
-        tareas.splice(indice, 1)
+    const agregarTarea = () => {
+        crearTarea(tareaRecibida)
+    }
+    const eliminarTarea = (borrarTarea) => {
+        const tareaParaHistorial = {nombreTarea: borrarTarea, completada: false, eliminada: true}
+        setTareas(tareas.filter(tarea => tarea.nombreTarea !== borrarTarea))
+        setHistorial([...historial, tareaParaHistorial])
+    }
+    const eliminarTareaHistorial = (borrarTarea) => {
+        setHistorial(historial.filter(tarea => tarea.nombreTarea !== borrarTarea))
+    }
+    const finalizarTarea = (nombreTarea) => {
+        setTareas((listaTareas) => listaTareas.map (tarea => tarea.nombreTarea === nombreTarea ? {...tarea, completada: !tarea.completada} : tarea))
     }
     useEffect(() => {
 
     },[])
     return(
         <VStack fontSize="1.2rem" lineHeight="1.5" fontWeight="400" fontFamily="Roboto,sans-serif" w="100%">
-            <Flex direction="row" w="80%" alignContent="center" justifyContent={{base:"center", sm:"center", md:"space-around"}}>
+            <Flex direction="row" w="77%" alignContent="center" justifyContent={{base:"center", sm:"center", md:"space-around"}}>
                 <Box display={{base:"none", sm:"none", md:"block"}}>
                     <Menu seleccionarMenu={seleccionarMenu} menuPrincipal={menuPrincipal} direction={"column"} />
                 </Box>
                 <Flex direction="column" mt="50px">
                     <Flex direction="column">
                         <InputGroup size='xxl' w={{base:"300px", sm:"400px", md:"500px", lg:"600px"}} maxW="600px">
-                            <Input w="100%" h="60px" pr="1.2rem"  p='15px' border="2px solid #e6e6e6" mb={{base:"0px", sm:"0px", md:"30px"}} borderRadius="20px" fontSize="1.2rem" onChange={recibirTarea} value={tareaRecibida} placeholder='Enter yor Task' isDisabled={!menuPrincipal ? true : false}  variant={menuPrincipal ? "outline" : "filled"}/>
+                            <Input w="100%" h="60px" pr="1.2rem"  p='15px' border="2px solid #e6e6e6" mb={{base:"0px", sm:"0px", md:"30px"}} borderRadius="20px" fontSize="1.2rem" onChange={recibirTarea} value={tareaRecibida} placeholder='Enter yor Task' isDisabled={!menuPrincipal ? true : false}  variant={menuPrincipal ? "outline" : "filled"} focusBorderColor="#212529" borderWidth="thin"/>
                             <InputRightElement>
                                 <Image src='img/agregar.png' alt='+' w="30px" cursor={menuPrincipal ? "pointer" : "no-drop"} top="15px" right="15px" position="relative" onClick={agregarTarea} />
                             </InputRightElement>
@@ -45,7 +56,7 @@ const Cuerpo = () => {
                             <Menu seleccionarMenu={seleccionarMenu} menuPrincipal={menuPrincipal} direction={"row"} />
                         </Box>
                     </Flex>
-                        <Lista seleccionMenu={menuPrincipal ? tareas : historial} borrarTarea={borrarTarea} menuPrincipal={menuPrincipal} />
+                        <Lista seleccionMenu={menuPrincipal ? tareas : historial} borrarTarea={eliminarTarea} eliminarTareaHistorial={eliminarTareaHistorial} finalizarTarea={finalizarTarea} menuPrincipal={menuPrincipal} />
                 </Flex>
             </Flex>
         </VStack>
