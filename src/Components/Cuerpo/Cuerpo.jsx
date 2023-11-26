@@ -47,7 +47,7 @@ const Cuerpo = () => {
                 <Flex direction="column" mt="50px">
                     <Flex direction="column">
                         <InputGroup size='xxl' w={{base:"300px", sm:"400px", md:"500px", lg:"600px"}} maxW="600px">
-                            <Input w="100%" h="60px" pr="1.2rem"  p='15px' border="2px solid #e6e6e6" mb={{base:"0px", sm:"0px", md:"30px"}} borderRadius="20px" fontSize="1.2rem" onChange={recibirTarea} value={tareaRecibida} placeholder='Enter yor Task' isDisabled={!menuPrincipal ? true : false}  variant={menuPrincipal ? "outline" : "filled"} focusBorderColor="#212529" borderWidth="thin"/>
+                            <Input w="100%" h="60px" pr="1.2rem"  p='15px' border="2px solid #e6e6e6" mb={{base:"0px", sm:"0px", md:"30px"}} borderRadius="20px" fontSize="1.2rem" onChange={recibirTarea} value={tareaRecibida} placeholder='Enter your Task' isDisabled={!menuPrincipal ? true : false}  variant={menuPrincipal ? "outline" : "filled"} focusBorderColor="#212529" borderWidth="thin"/>
                             <InputRightElement>
                                 <Image src='img/agregar.png' alt='+' w="30px" cursor={menuPrincipal ? "pointer" : "no-drop"} top="15px" right="15px" position="relative" onClick={agregarTarea} />
                             </InputRightElement>
