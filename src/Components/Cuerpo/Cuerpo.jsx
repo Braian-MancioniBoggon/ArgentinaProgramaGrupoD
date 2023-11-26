@@ -15,9 +15,11 @@ const Cuerpo = () => {
         setMenuPrincipal(seleccion)
     }
     const crearTarea = (nombreTarea) => {
-        if (tareaRecibida != ""){
+        if (nombreTarea.trim() != ""){
             const tareaNueva = {nombreTarea, completada: false, eliminada: false}
             setTareas([...tareas, tareaNueva])
+            setTareaRecibida("")
+        } else {
             setTareaRecibida("")
         }
     }
