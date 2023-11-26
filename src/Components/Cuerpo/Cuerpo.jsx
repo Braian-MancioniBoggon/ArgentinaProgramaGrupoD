@@ -19,8 +19,7 @@ const Cuerpo = () => {
             const tareaNueva = {nombreTarea, completada: false, eliminada: false}
             setTareas([...tareas, tareaNueva])
         }
-            setTareaRecibida("")
-        
+        setTareaRecibida("")
     }
     const agregarTarea = () => {
         crearTarea(tareaRecibida)
