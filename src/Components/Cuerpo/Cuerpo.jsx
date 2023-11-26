@@ -18,10 +18,9 @@ const Cuerpo = () => {
         if (nombreTarea.trim() != ""){
             const tareaNueva = {nombreTarea, completada: false, eliminada: false}
             setTareas([...tareas, tareaNueva])
-            setTareaRecibida("")
-        } else {
-            setTareaRecibida("")
         }
+            setTareaRecibida("")
+        
     }
     const agregarTarea = () => {
         crearTarea(tareaRecibida)
